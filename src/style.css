@@ -1,3 +1,18 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.weather-app {
+  text-align: center auto;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 200px 150px;
+  border: 1px solid;
+  border-radius: 5px;
+  transform: skew(-14deg);
+}
+
 h1 {
-  color: blue;
+  font-size: small;
+  color: brown;
 }
