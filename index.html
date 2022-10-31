@@ -21,7 +21,9 @@
 
   <body>
     <div class="container">
+      <div class="weather-app-wrapper">   
       <div class="weather-app">
+        <div class="overview">
       <h1>Philadelphia</h1>
       <ul>
         <div class="friday-clear">
@@ -32,19 +34,19 @@
           Clear
         </li>
         </div>
+        </div>
       </ul>
       <div class="row">
         <div class="col-md-6">
-          <div class="flexbox">
+          <div class="flexbox weather-temperature">
           <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" 
-          alt="Sunny" width=60px/>
+          alt="Sunny" 
+          class="float-left"
+          />
+          <div class="float-left"><strong>12</strong>
+          <span class="units"> &deg;C | <a href="#"> &deg;F </a> </span> 
+
           </div>
-          <div class="deg">
-          <strong>
-          12 </strong>
-          <span class="units"> 
-          &deg;C | &deg;F
-          </span>
           </div>
           </div>
         <div class="col-6">
@@ -61,7 +63,8 @@
          </ul> 
         </div>
       </div>
-      <footer class="footer">
+    </div>
+    <footer class="footer">
       <a href="https://github.com/josiane299/Josiane-vanilla-weather-app">
         Open-source code</a>, by <a href="https://www.linkedin.com/in/magnim-yague/">
           <em>Magnim Yague </a></em>
