@@ -34,10 +34,11 @@
         </div>
       </ul>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="flexbox weather-temperature">
           <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" 
           alt="Sunny" 
+          id="icon"
           class="float-left"
           />
           <div class="float-left"><strong id="temperature"></strong>
@@ -53,6 +54,23 @@
          </ul> 
         </div>
       </div>
+      <div class="row">
+        <div class="col-9">
+      <form id="search-form" class="mb-3">
+        <input class="search" 
+        type="search" 
+        placeholder="City Name.."
+        class="form-control" />
+        <input type="submit" 
+        value="Search" 
+        class=" btn btn-primary w-15"
+        id="city-input"
+        />
+        
+      </form>
+
+         </div>
+       </div>
     </div>
     <footer class="footer">
       <a href="https://github.com/josiane299/Josiane-vanilla-weather-app">
