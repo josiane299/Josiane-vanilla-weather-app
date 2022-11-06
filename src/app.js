@@ -26,6 +26,7 @@ function formatDate(timestamp) {
 //temperature function
 
 function displayTemperature(response) {
+  console.log(response.data.temperature.current);
   let temperatureElement = document.querySelector(`#temperature`);
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
@@ -50,22 +51,40 @@ function displayTemperature(response) {
 
 }
 
-function search (event){
+function search (city){
+let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayTemperature);
+
+
+}
+
+
+
+function handleSubmit (event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector(`#city-input`);
-  console.log(cityInputElement.value);
+  let cityInputElement = document.querySelector(`.search`);
+  search(cityInputElement.value);
+  
+
+}
+
+function displayFehrenheitTemperature(event){
+  event.preventDefault();
+  let fahrenheitTemperature = (21 * 9)/5+32;
+  alert(fahrenheitTemperature);
   
 }
 
 
 
-let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
-let city = "philadelphia";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(displayTemperature);
-
-
 //adding a search engine
 
+
+search (`Philadelphia`);
+
 let form = document.querySelector(`#search-form`);
+form.addEventListener(`submit`, handleSubmit);
+
+let fahrenheitLink = document.querySelector(`#fahrenheit-link`);
+fahrenheitLink.addEventListener(`click`, displayFehrenheitTemperature);

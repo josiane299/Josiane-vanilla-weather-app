@@ -42,7 +42,8 @@
           class="float-left"
           />
           <div class="float-left"><strong id="temperature"></strong>
-          <span class="units"> &deg;C | <a href="#"> &deg;F </a> </span> 
+          <span class="units"> 
+            &deg;C | <a href="#" id="fahrenheit-link"> &deg;F </a> </span> 
 
           </div>
           </div>
@@ -63,6 +64,7 @@
         class="form-control" />
         <input type="submit" 
         value="Search" 
+        autocomplete="off"
         class=" btn btn-primary w-15"
         id="city-input"
         />
