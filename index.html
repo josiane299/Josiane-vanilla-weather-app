@@ -25,6 +25,14 @@
       <div class="weather-app-wrapper">   
       <div class="weather-app">
         <div class="overview">
+          <div class="show-cities">
+            <div class="row">
+              <div class="col-3"> <a href="#" id="tokyo-city">Tokyo</a> </div>
+              <div class="col-3"> <a href="#" id="london-city">London</a> </div>
+              <div class="col-3"> <a href="#" id="miami-city">Miami</a> </div>
+               <div class="col-3"> <a href="#" id="lome-city">Lome</a> </div>
+            </div>
+          </div>
       <h1 id="city"></h1>
         <ul>
         <div class="friday-clear">
@@ -42,8 +50,8 @@
           class="float-left"
           />
           <div class="float-left"><strong id="temperature"></strong>
-          <span class="units"> 
-            &deg;C | <a href="#" id="fahrenheit-link"> &deg;F </a> </span> 
+          <span class="units"> <a href="#" id="celsius-link" class="active">
+            &deg;C  </a>| <a href="#" id="fahrenheit-link" class="activeF"> &deg;F </a> </span> 
 
           </div>
           </div>
@@ -55,9 +63,8 @@
          </ul> 
         </div>
       </div>
-      <div class="row">
-        <div class="col-9">
-      <form id="search-form" class="mb-3">
+      <br/>
+       <form id="search-form" class="mb-3">
         <input class="search" 
         type="search" 
         placeholder="City Name.."
@@ -68,11 +75,7 @@
         class=" btn btn-primary w-15"
         id="city-input"
         />
-        
       </form>
-
-         </div>
-       </div>
     </div>
     <footer class="footer">
       <a href="https://github.com/josiane299/Josiane-vanilla-weather-app">

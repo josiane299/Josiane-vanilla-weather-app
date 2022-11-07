@@ -57,3 +57,25 @@ li first-letter {
   position: relative;
   font-size: 16px;
 }
+
+.weather-temperature .active{
+  color: black;
+  cursor: default;
+  text-decoration-line: none;
+
+
+}
+
+.weather-temperature .active:hover{
+  text-decoration: none;
+  
+}
+
+.weather-temperature .activeF {
+  text-decoration-line: none;
+}
+
+.show-cities {
+  text-decoration: none;
+
+}
