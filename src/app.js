@@ -90,12 +90,13 @@ celsiusLink.addEventListener(`click`, displayCelsiusTemperature);
 
 search(`Philadelphia`);
 
-//linking the cities 
+//linking the cities (TOKYO)
+
 
 function inputTokyo(event){
-  console.log(showCities);
-  let showCities = document.querySelector(`#cities`);
-  showCities.innerHTML = "Tokyo";
+
+  let showTokyo = document.querySelector(`#city`);
+  showTokyo.innerHTML = "Tokyo";
   let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Tokyo&key=${apiKey}&units=metric`;
 
@@ -105,6 +106,54 @@ function inputTokyo(event){
   
 }
  
-let showCities = document.querySelector(`#tokyo`);
-showCities.addEventListener(`click`,inputTokyo);
+let showTokyo = document.querySelector(`#tokyo-city`);
+showTokyo.addEventListener(`click`, inputTokyo);
 
+//linking the cities (LONDON)
+
+function inputLondon(event) {
+  
+  let showLondon = document.querySelector(`#city`);
+  showLondon.innerHTML = "London";
+  let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=London&key=${apiKey}&units=metric`;
+
+  celsiusLink.classList.add(`active`);
+  fahrenheitLink.classList.remove(`active`);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let showLondon = document.querySelector(`#london-city`);
+showLondon.addEventListener(`click`, inputLondon);
+
+//linking the cities (MIAMI)
+
+function inputMiami (event) {
+  let showMiami = document.querySelector(`#city`);
+  showMiami.innerHTML = "Miami";
+  let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Miami&key=${apiKey}&units=metric`;
+
+  celsiusLink.classList.add(`active`);
+  fahrenheitLink.classList.remove(`active`);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let showMiami = document.querySelector(`#miami-city`);
+showMiami.addEventListener(`click`, inputMiami);
+
+//linking the cities (LOME)
+
+function inputLome(event) {
+  let showLome = document.querySelector(`#city`);
+  showLome.innerHTML = "Miami";
+  let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lome&key=${apiKey}&units=metric`;
+
+  celsiusLink.classList.add(`active`);
+  fahrenheitLink.classList.remove(`active`);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let showLome = document.querySelector(`#lome-city`);
+showLome.addEventListener(`click`, inputLome);
