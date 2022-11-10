@@ -58,17 +58,14 @@ li first-letter {
   font-size: 16px;
 }
 
-.weather-temperature .active{
+.weather-temperature .active {
   color: black;
   cursor: default;
   text-decoration-line: none;
-
-
 }
 
-.weather-temperature .active:hover{
+.weather-temperature .active:hover {
   text-decoration: none;
-  
 }
 
 .weather-temperature .activeF {
@@ -77,5 +74,13 @@ li first-letter {
 
 .show-cities {
   text-decoration: none;
+}
 
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.weather-forecast-date{
+  font-size: 12px;
 }
