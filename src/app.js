@@ -25,6 +25,14 @@ function formatDate(timestamp) {
 
 //temperature function
 
+function getForcast(coordinates){
+  
+  let apiKey = `ad14tc2f8f3off39960b4fb3559c5c0a`;
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   celsiusTemperature = response.data.temperature.current;
   let temperatureElement = document.querySelector(`#temperature`);
@@ -48,7 +56,13 @@ function displayTemperature(response) {
   let iconElement = document.querySelector(`#icon`);
   iconElement.setAttribute(`src`, response.data.condition.icon_url);
   iconElement.setAttribute(`alt`, response.data.condition.description);
+   
+
+  getForcast(response.data.coordinates);
+
+
 }
+
 
 function search(city) {
   let apiKey = "ad14tc2f8f3off39960b4fb3559c5c0a";
@@ -160,35 +174,52 @@ showLome.addEventListener(`click`, inputLome);
 
 //Adding display forecast
 
-function displayForecast(){
-  let forecastElement = document.querySelector(`#forecast`);
 
+displayForecast();
+
+function formatDay(timestamp){
+  let date = new Date (timestamp*1000);
+  let day = date.getDay();
+  let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`,`Friday`];
+  return days[day];
+}
+
+
+
+
+
+function displayForecast(response){
+let forecast = response.data.daily;
+ console.log(response.data.daily);
+
+  let forecastElement = document.querySelector(`#forecast`);
+ 
   let forecastHTML = `<div class = "row">`;
-  let days = [`Thursday`, `Friday`, `Saturday`, `Sunday`];
-  days.forEach(function(day){ 
+  
+  forecast.forEach(function (day, index) {
     forecastHTML =
-    forecastHTML +
-    ` 
+      forecastHTML +
+      ` 
       <div class="col-2">
         <div class="weather-forecast-date">
-        ${day}
-        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" 
+        ${formatDay(day.time)}
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/${forecast[0].condition.icon}/clear-sky-day.png" 
         alt="clear-sky-day"
         width= "60">
         <span class="weather-forecast-temperature-max">
-          18&deg;
+          ${response.data.daily[index].temperature.maximum}&deg;
         </span>
         <span class="weather-forecast-temperature-min">
-          12&deg;
+          ${response.data.daily[index].temperature.minimum}&deg;
         </span>
          </div> 
          </div>
         
         `;
-  })
+  });
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 
 }
 
-displayForecast();
+
