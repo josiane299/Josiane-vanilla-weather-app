@@ -177,49 +177,56 @@ showLome.addEventListener(`click`, inputLome);
 
 displayForecast();
 
-function formatDay(timestamp){
-  let date = new Date (timestamp*1000);
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`,`Friday`];
+  let days = [
+    `Sunday`,
+    `Monday`,
+    `Tuesday`,
+    `Wednesday`,
+    "Thursday",
+    `Friday`,
+    "Saturday",
+  ];
   return days[day];
 }
 
-
-
-
-
-function displayForecast(response){
-let forecast = response.data.daily;
- console.log(response.data.daily);
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(response.data.daily);
 
   let forecastElement = document.querySelector(`#forecast`);
- 
+
   let forecastHTML = `<div class = "row">`;
-  
+
   forecast.forEach(function (day, index) {
+    if (index<6) { 
+ 
+
     forecastHTML =
       forecastHTML +
       ` 
       <div class="col-2">
         <div class="weather-forecast-date">
         ${formatDay(day.time)}
-        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/${forecast[0].condition.icon}/clear-sky-day.png" 
+        <img src="${day.condition.icon_url}" 
         alt="clear-sky-day"
         width= "60">
         <span class="weather-forecast-temperature-max">
-          ${response.data.daily[index].temperature.maximum}&deg;
+          ${Math.round(day.temperature.maximum)}&deg;
         </span>
         <span class="weather-forecast-temperature-min">
-          ${response.data.daily[index].temperature.minimum}&deg;
+          ${Math.round(day.temperature.minimum)}&deg;
         </span>
          </div> 
          </div>
         
         `;
+      }
+ 
   });
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
-
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-
 
