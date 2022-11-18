@@ -17,6 +17,10 @@
       crossorigin="anonymous"
     ></script>
      <link rel="stylesheet" href="src/style.css" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300;1,400&display=swap" 
+rel="stylesheet">
     <title>Weather App</title>
   </head>
 
@@ -45,6 +49,7 @@
         <div class="col-6">
           <div class="flexbox weather-temperature">
           <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" 
+          width="40"
           alt="Sunny" 
           id="icon"
           class="float-left"
@@ -67,28 +72,29 @@
       <div class="weather-forecast"
       id="forecast">
        </div>
+      
       <br/>
        <form id="search-form" class="search-bar">
-        <input class="search" 
+        <input class="search w-60" 
         type="search" 
-        placeholder="City Name.."
-        class="form-control" />
+        placeholder="City Name"
+        class="form-control"
+         />
         <input type="submit" 
         value="Search" 
         autocomplete="off"
-        class=" btn btn-primary w-15"
         id="city-input"
-        />
-      </form>
-    </div>
-    <footer class="footer">
+        class="btn btn-outline-dark"
+       </form>
+      <br/>
+      <footer>
       <a href="https://github.com/josiane299/Josiane-vanilla-weather-app">
         Open-source code</a>, by <a href="https://www.linkedin.com/in/magnim-yague/">
           <em>Magnim Yague </a></em>
     </footer>
+       </div>
     </div>
     </div>
-    
     <script src="src/app.js"></script>
   </body>
 </html>
